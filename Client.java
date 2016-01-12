@@ -58,7 +58,7 @@ public class Client {                //Basic initializations and class build
         return true;
 }
 
-private void display(String msg) {
+private void display(String msg) {   //displaying messages, or errors if something went wrong
     if(cg == null)
         System.out.println(msg);
     else
@@ -74,7 +74,7 @@ private void display(String msg) {
         }
     }
 
-    private void disconnect() {
+    private void disconnect() {                    //clean disconnect
         try {
             if(sInput != null) sInput.close();
         }
@@ -92,7 +92,7 @@ private void display(String msg) {
             cg.connectionFailed();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) {       //main with generic inits (anon username and such)
         int portNumber = 1500;
         String serverAddress = "localhost";
         String userName = "Anonymous";
@@ -124,7 +124,7 @@ private void display(String msg) {
         if(!client.start())
             return;
 
-        Scanner scan = new Scanner(System.in);
+        Scanner scan = new Scanner(System.in);       //gets user message, or pre-defined functions (whois)
 
         while(true) {
             System.out.print("> ");
