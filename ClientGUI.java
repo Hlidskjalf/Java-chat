@@ -4,7 +4,7 @@ import java.awt.event.*;
 
 public class ClientGUI extends JFrame implements ActionListener {
 
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;          //labels, text fields, buttons, etc...
     private JLabel label;
     private JTextField tf;
     private JTextField tfServer, tfPort;
@@ -21,33 +21,33 @@ public class ClientGUI extends JFrame implements ActionListener {
         defaultPort = port;
         defaultHost = host;
 
-        JPanel northPanel = new JPanel(new GridLayout(3,1));
+        JPanel northPanel = new JPanel(new GridLayout(3,1));                 //layout of the window
         JPanel serverAndPort = new JPanel(new GridLayout(1,5,1,3));
         tfServer = new JTextField(host);
         tfPort = new JTextField(" " + port);
         tfPort.setHorizontalAlignment(SwingConstants.RIGHT);
 
-        serverAndPort.add(new JLabel("Server Address: "));
+        serverAndPort.add(new JLabel("Server Address: "));                 //connection specifics
         serverAndPort.add(tfServer);
         serverAndPort.add(new JLabel("Port Number: "));
         serverAndPort.add(tfPort);
         serverAndPort.add(new JLabel(""));
         northPanel.add(serverAndPort);
 
-        label = new JLabel("Enter your username below", SwingConstants.CENTER);
+        label = new JLabel("Enter your username below", SwingConstants.CENTER);            //setting username
         northPanel.add(label);
         tf = new JTextField("Anonymous");
         tf.setBackground(Color.WHITE);
         northPanel.add(tf);
         add(northPanel, BorderLayout.NORTH);
 
-        ta = new JTextArea("Welcome to the Chat Room\n", 80,80);
+        ta = new JTextArea("Welcome to the Chat Room\n", 80,80);                //welcome message
         JPanel centerPanel = new JPanel(new GridLayout(1,1));
         centerPanel.add(new JScrollPane(ta));
         ta.setEditable(false);
         add(centerPanel, BorderLayout.CENTER);
 
-        login = new JButton("Login");
+        login = new JButton("Login");                         //buttony labels
         login.addActionListener(this);
         logout = new JButton("Logout");
         logout.addActionListener(this);
@@ -73,7 +73,7 @@ public class ClientGUI extends JFrame implements ActionListener {
         ta.setCaretPosition(ta.getText().length() - 1);
     }
 
-    void connectionFailed() {
+    void connectionFailed() {                      
         login.setEnabled(true);
         logout.setEnabled(false);
         whoIsIn.setEnabled(false);
